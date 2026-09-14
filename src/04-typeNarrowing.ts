@@ -167,3 +167,34 @@ message: "User not found"
 // ? Literal Type → Allows one specific, exact value.
 // ? Discriminated Union → Uses a common property to identify the exact type.
 // ? Type Narrowing → The `if` condition narrows the type.
+
+
+// ? Custom Type Guard
+//  A custom type guard is a function that checks a value's type
+//  and tells TypeScript its specific type when it returns true.
+
+type ChaiOrder = {
+  type: string;
+  sugar: number;
+};
+
+function isChaiOrder(obj: any): obj is ChaiOrder {
+  return (
+    typeof obj === "object" &&
+    obj !== null &&
+    "type" in obj &&
+    "sugar" in obj &&
+    typeof obj.type === "string" &&
+    typeof obj.sugar === "number"
+  );
+}
+
+function serveOrder(item: ChaiOrder | string) {
+  if (isChaiOrder(item)) {
+    // ? item is narrowed to ChaiOrder here.
+    return `Serving ${item.type} chai with ${item.sugar} sugar`;
+  }
+
+  // ? item is narrowed to string here.
+  return `Serving custom chai: ${item}`;
+}
