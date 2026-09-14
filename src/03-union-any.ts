@@ -28,15 +28,16 @@ apiRequestStatus = "success" // ✅
 //? ⚠️ Avoid any when possible
 
 let data: any = "Hello";
+data.toUpperCase(); // ✅
 
 data = 100;       // ✅
 data = true;      // ✅
 data = [1, 2, 3]; // ✅
 data = {};        // ✅
 
-data.toUpperCase(); // ✅
 
 // TypeScript won't protect us here:
 data = 100;
 
-data.toUpperCase();   // ❌ Runtime error
+// data.toUpperCase();   // ❌ Runtime error
+
