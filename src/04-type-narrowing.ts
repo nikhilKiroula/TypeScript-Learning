@@ -202,19 +202,4 @@ function serveOrder(item: ChaiOrder | string) {
 //  Custom Type Guard = Our own type-checking function.
 //  `value is User` = Type Predicate.
 
-const data :unknown = "hello"
-const str  = data as string
 
-type Role = "admin"|"user" |"kite"
-
-function redirectBasedOnRole(role:Role){
-  if(role === "admin"){
-    console.log("redirecting to admin dashboard");
-    return
-  }
-  if(role === "user"){
-    console.log("redirecting to user dashboard");
-    return
-  }
- role;
-}
