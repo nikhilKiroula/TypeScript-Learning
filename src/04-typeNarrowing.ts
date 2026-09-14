@@ -26,24 +26,21 @@ function process(data: string | string[]) {
 }
 
 //? in operator Narrowing
+// The `in` operator checks whether a specific property exists in an object and helps TypeScript narrow the type.
 
-// An interface defines the structure or shape that an object should follow.
-interface Admin {
-  name: string;
-  permissions: string[];
-}
+function checkUser(user: { name: string } | { name: string; age: number }) {
 
-interface User {
-  name: string;
-}
-
-function showUser(user: Admin | User) {
-  if ("permissions" in user) {
-    console.log(user.permissions);
+  if ("age" in user) {
+    // ? TypeScript knows that `user` has an age property here.
+    console.log(`Age: ${user.age}`);
   } else {
-    console.log(user.name);
+    console.log(`Name: ${user.name}`);
   }
+
 }
+
+checkUser({ name: "Nikhil", age: 22 });
+checkUser({ name: "Rahul" });
 
 
 //? Truthiness Narrowing
