@@ -170,6 +170,9 @@ message: "User not found"
 //  A custom type guard is a function that checks a value's type
 //  and tells TypeScript its specific type when it returns true.
 
+//  A type predicate (`value is Type` here "obj is ChaiOrder") is used to tell TypeScript
+//  the specific type when the function returns true.
+
 type ChaiOrder = {
   type: string;
   sugar: number;
@@ -194,4 +197,24 @@ function serveOrder(item: ChaiOrder | string) {
 
   // ? item is narrowed to string here.
   return `Serving custom chai: ${item}`;
+}
+
+//  Custom Type Guard = Our own type-checking function.
+//  `value is User` = Type Predicate.
+
+const data :unknown = "hello"
+const str  = data as string
+
+type Role = "admin"|"user" |"kite"
+
+function redirectBasedOnRole(role:Role){
+  if(role === "admin"){
+    console.log("redirecting to admin dashboard");
+    return
+  }
+  if(role === "user"){
+    console.log("redirecting to user dashboard");
+    return
+  }
+ role;
 }
