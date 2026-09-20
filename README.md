@@ -239,13 +239,13 @@ be studied, practiced, and revised independently.
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/nikhilKiroula/TypeScript-Learning
 ```
 
 ### 2. Navigate to the Project
 
 ```bash
-cd <repository-name>
+cd TypeScript-Learning
 ```
 
 ### 3. Install Dependencies
